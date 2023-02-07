@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Character } from './interface/character.interface';
+import { CharacterService } from './character.service';
 
 
 @Component({
@@ -8,21 +9,7 @@ import { Character } from './interface/character.interface';
 })
 export class CharacterComponent {
 
-  characters : Character[] = [
-    {
-      name: 'MONKEY D. LUFFY',
-      status: 'ALIVE',
-      age: 19
-    },
-    {
-      name: 'RORONAO ZORO',
-      status: 'ALIVE',
-      age: 21
-    }
-  ];
-
-  addNewCharacter( arg : Character){
-    this.characters.push(arg)
+  constructor() {
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from '../interface/character.interface';
+import { CharacterService } from '../character.service';
 
 @Component({
   selector: 'app-add',
@@ -7,17 +8,21 @@ import { Character } from '../interface/character.interface';
 })
 export class AddComponent {
 
+  constructor( private CharacterService : CharacterService ) {}
+
+
   @Input() newCharacter : Character = {
     name : ''
   }
 
-  @Output() onNewCharacter : EventEmitter<Character> = new EventEmitter();
 
   addCharacter(){
     if ( this.newCharacter.name.trim().length === 0){
       return;
     }
-    this.onNewCharacter.emit(this.newCharacter)
+
+    this.CharacterService.addCharacter( this.newCharacter );
+
     this.newCharacter = {
       name: '',
       status: '',

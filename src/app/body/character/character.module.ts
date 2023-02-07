@@ -4,6 +4,7 @@ import { CharacterComponent } from './character.component';
 import { FormsModule } from '@angular/forms';
 import { AddComponent } from './add/add.component';
 import { ListComponent } from './list/list.component';
+import { CharacterService } from './character.service';
 
 
 
@@ -19,6 +20,9 @@ import { ListComponent } from './list/list.component';
   imports: [
     CommonModule,
     FormsModule
+  ],
+  providers: [
+    CharacterService
   ]
 })
 export class CharacterModule { }
